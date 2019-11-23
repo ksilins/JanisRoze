@@ -74,19 +74,19 @@ public class OrderPage extends Base {
         }
     }
 
-    public void fillInDeliveryType(String type, String value) {
+    public void fillInDeliveryType(String type, String destination) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(DELIVERY_SPINNER));
         switch (type) {
             case "Omniva":
                 driver.findElement(OMNIVA_DELIVERY).click();
                 Select station = new Select(driver.findElement(By.id("s_method_scandipost24_extra_box")));
-                station.selectByValue("scandipost24_" + value);
+                station.selectByValue("scandipost24_" + destination);
                 break;
             case "Self":
                 driver.findElement(SELF_DELIVERY).click();
                 Select office = new Select(driver.findElement(By.id("s_method_payonpickup_payonpickup_shop")));
-                office.selectByValue("payonpickup_payonpickup_" + value);
+                office.selectByValue("payonpickup_payonpickup_" + destination);
                 break;
         }
 
@@ -119,7 +119,8 @@ public class OrderPage extends Base {
                 break;
         }
     }
-     public void discountCode() {
+
+    public void discountCode() {
         driver.findElement(DISCOUNT_CODE).sendKeys("DISCOUNTCODE");
-     }
+    }
 }
