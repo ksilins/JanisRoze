@@ -13,8 +13,7 @@ public class MainPage extends Base {
     private static By ITEM_NAME = By.cssSelector(".item:first-child > h2 > a");
     private static By ITEM_PRICE = By.cssSelector(".item:first-child .price");
 
-    public void acceptCookies(){
-        startBrowser();
+    public void acceptCookies() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

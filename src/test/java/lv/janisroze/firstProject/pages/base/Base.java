@@ -15,7 +15,7 @@ public class Base {
     protected static WebDriver driver;
     private static String BASE_URL = "https://www.janisroze.lv/lv/";
 
-    protected static void startBrowser() {
+    public static void startBrowser() {
         String driverPath = "/Users/user/IdeaProjects/QA2Repo/src/test/resources/";
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         driver = new ChromeDriver();
@@ -23,7 +23,7 @@ public class Base {
         driver.get(BASE_URL);
     }
 
-    protected static void stopBrowser() {
+    public static void stopBrowser() {
         driver.quit();
     }
 
