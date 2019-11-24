@@ -3,7 +3,6 @@ package lv.janisroze.firstProject.pages;
 import lv.janisroze.firstProject.pages.base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderPage extends Base {
@@ -52,10 +51,8 @@ public class OrderPage extends Base {
         driver.findElement(CITY_FIELD).clear();
         driver.findElement(CITY_FIELD).sendKeys(user.getCity());
         driver.findElement(POSTAL_CODE_FIELD).sendKeys(user.getPostalCode());
-        Select cityRegionSelect = new Select(driver.findElement(By.id("billing:region_id")));
-        cityRegionSelect.selectByValue("370");
-        Select countrySelect = new Select(driver.findElement(By.id("billing:country_id")));
-        countrySelect.selectByValue("LV");
+        driver.findElement(By.cssSelector("#billing\\:region_id option[value='366']")).click();
+        driver.findElement(By.cssSelector("#billing\\:country_id option[value='LV']")).click();
     }
 
     public void fillInDeliveryType(String type) {
@@ -80,13 +77,11 @@ public class OrderPage extends Base {
         switch (type) {
             case "Omniva":
                 driver.findElement(OMNIVA_DELIVERY).click();
-                Select station = new Select(driver.findElement(By.id("s_method_scandipost24_extra_box")));
-                station.selectByValue("scandipost24_" + destination);
+                driver.findElement(By.cssSelector("option[value='scandipost24_" + destination + "']")).click();
                 break;
             case "Self":
                 driver.findElement(SELF_DELIVERY).click();
-                Select office = new Select(driver.findElement(By.id("s_method_payonpickup_payonpickup_shop")));
-                office.selectByValue("payonpickup_payonpickup_" + destination);
+                driver.findElement(By.cssSelector("option[value='payonpickup_payonpickup_" + destination + "']")).click();
                 break;
         }
 

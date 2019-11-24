@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 
 public class MainPage extends Base {
 
-    private static By ACCEPT_COOKIES = By.cssSelector(".cc-actions > a:first-child");
-    private static By NOTIFICATIO_CANCEL = By.id("onesignal-popover-cancel-button");
+    private static By ACCEPT_COOKIES = By.cssSelector("a[class='cc-primary-btn']");
+    private static By NOTIFICATION_CANCEL = By.id("onesignal-popover-cancel-button");
     private static By SEARCH_BOX = By.id("search");
     private static By CART_BUTTON = By.cssSelector(".item #mini-cart");
     private static By FIRST_ITEM = By.cssSelector(".category-products .item:first-child");
@@ -36,8 +36,8 @@ public class MainPage extends Base {
     }
 
     public void cancelNotifications() {
-        waitUntil(NOTIFICATIO_CANCEL);
-        driver.findElement(NOTIFICATIO_CANCEL).click();
+        waitUntil(NOTIFICATION_CANCEL);
+        driver.findElement(NOTIFICATION_CANCEL).click();
     }
 
     public void openCart() {

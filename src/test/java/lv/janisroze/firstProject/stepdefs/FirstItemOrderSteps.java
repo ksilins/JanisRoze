@@ -30,7 +30,7 @@ public class FirstItemOrderSteps {
         orderPage.fillInCustomerInfo();
 //        "Self" value examples: 7, 11, 17, 24, 31, 33, 47
 //        "Omniva" value examples: 9940, 9158, 9950, 9206, 9983
-        orderPage.fillInDeliveryType("Omniva", "9983");
+        orderPage.fillInDeliveryType("Self", "33");
         orderPage.fillInPayment("Paypal", true);
         orderPage.discountCode();
     }
